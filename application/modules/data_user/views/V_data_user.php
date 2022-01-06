@@ -95,23 +95,18 @@
           <div class="modal-body">
 
             <div class="panel-body">
-
-
-
-
-
           <div class="col-md-6">
             <label for="" class="control-label">Nama</label>
-            <input type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
-            <input type="hidden" value="<?= $res->id_admin ?>" name="id_user">
-          </div>
-          <div class="col-md-6">
-            <label for="" class="control-label">No Hp</label>
-            <input type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
-          </div>
-          <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label"> Username</label>
-            <input type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
+              <input type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
+              <input type="hidden" value="<?= $res->id_admin ?>" name="id_user">
+            </div>
+            <div class="col-md-6">
+              <label for="" class="control-label">No Hp</label>
+              <input type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
+            </div>
+            <div style="margin-top: 30px" class="col-md-6">
+              <label for="" class="control-label"> Username</label>
+              <input type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
           </div>
           <div style="margin-top: 30px" class="col-md-6">
             <label for="" class="control-label">Password</label>
@@ -119,7 +114,7 @@
           </div>
           <div style="margin-top: 30px" class="col-md-6" >
             <label for="" class="control-label">Foto Profil</label>
-            <input type="file" name="gambar" placeholder="Logo" class="form-control" id="userfile" onchange="tampilkanPreview(this,'preview')">
+            <input type="file" name="gambar" placeholder="Logo " class="form-control" id="userfile" onchange="tampilkanPreview(this,'preview')">
           </div>
           <div style="margin-top: 30px" class="col-md-6">
             <label for="" class="control-label">Level</label>
@@ -172,28 +167,39 @@
           <div class="modal-body">
 
             <div class="panel-body">
-              <div class="col-lg-4">
-                <label for="" class="control-label">Nama Sekolah :</label>
-              </div>
-              <div class="col-md-8">
+          <div class="col-md-6">
+            <label for="" class="control-label">Nama</label>
+              <input disabled type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
+              <input  type="hidden" value="<?= $res->id_admin ?>" name="id_user">
+            </div>
+            <div class="col-md-6">
+              <label for="" class="control-label">No Hp</label>
+              <input disabled type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
+            </div>
+            <div style="margin-top: 30px" class="col-md-6">
+              <label for="" class="control-label"> Username</label>
+              <input disabled type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
+          </div>
+          <div style="margin-top: 30px" class="col-md-6">
+            <label for="" class="control-label">Password</label>
+            <input disabled type="password" value="<?= $res->password ?>"  name="password"  placeholder="Password" class="form-control">
+          </div>
+          
+          <div style="margin-top: 30px" class="col-md-6">
+            <label for="" class="control-label">Level</label>
+            <select disabled name="level" class="form-control" id="exampleFormControlSelect1">
+              <option value="2">Kasir</option>
+              <option value="3">Pelanggan</option>
+              
+            </select>
+          </div>
+          <div class="col-md-6 " style="margin-top: 2%">
+            <label for="" class="control-label">Preview Foto Profile</label>
+            <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
+          </div>
 
-                <input type="text" disabled="disabled" name="nama_sekolah" placeholder="Nama Sekolah" class="form-control" value="<?= $res->nama?>">
-              </div>
-              <div class="col-lg-4" style="margin-top: 2%">
-                <label for="" class="control-label">Keterangan :</label>
-              </div>
-              <div class="col-md-8" style="margin-top: 2%">
-
-                <textarea disabled="disabled" type="text" name="keterangan" rows="5" placeholder="Keterangan" class="form-control"><?= $res->username ?></textarea>
-              </div>
-              <div class="col-lg-4" style="margin-top: 2%">
-                <label for="" class="control-label">Preview Foto Profile :</label>
-              </div>
-              <div class="col-md-8 " style="margin-top: 2%">
-               <img   src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
-             </div>
-
-           </div>
+             
+            </div>
 
 
          </div>
@@ -223,7 +229,7 @@
         <!--Modal body-->
         <div class="modal-body">
           <p class="text-semibold text-main"></p>
-          <p>Anda Yakin Ingin Menghapus <b><?php echo $res->nama_sekolah ?></b> ? </p>
+          <p>Anda Yakin Ingin Menghapus <b><?php echo $res->nama ?></b> ? </p>
           <br>
 
 
@@ -233,7 +239,7 @@
         <!--Modal footer-->
         <div class="modal-footer">
           <button data-dismiss="modal" class="btn btn-default" type="button">Batal</button>
-          <a class="btn btn-danger" href="<?php echo base_url('data_sekolah/hapus/'. $res->id_admin) ?>">Hapus Sekolah</a>
+          <a class="btn btn-danger" href="<?php echo base_url('data_user/hapus/'. $res->id_admin) ?>">Hapus User</a>
         </div>
       </div>
     </div>

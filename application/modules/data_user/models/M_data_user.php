@@ -41,7 +41,7 @@ class M_data_user extends CI_Model {
 					'password'		=> $password1,
 					'hp'		=> $hp,
 					'level'		=> $level,
-					'foto' 				=> $gbr['file_name'],
+					'foto' 		=> $gbr['file_name'],
 					
 					
 				);
@@ -95,9 +95,9 @@ class M_data_user extends CI_Model {
 					'password'		=> $password1,
 					'hp'		=> $hp,
 					'level'		=> $level,
-					'foto' 				=> $gbr['file_name'],
+					'foto' 		=> $gbr['file_name'],
 				);
-				$this->db->where('id_admin',$id_sekolah)->update('tb_login', $data);
+				$this->db->where('id_admin',$id_user)->update('tb_login', $data);
 			
 			}	 
 		}
@@ -115,7 +115,7 @@ class M_data_user extends CI_Model {
 
 	function hapus($id)
 	{
-		$this->db->where('id_sekolah', $id)->delete('sekolah');
+		$this->db->where('id_admin', $id)->delete('tb_login');
 	}
 
 	function cari()
