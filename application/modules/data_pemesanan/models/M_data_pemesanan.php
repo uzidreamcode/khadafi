@@ -5,7 +5,12 @@ class M_data_pemesanan extends CI_Model {
 
 	function tampil()
 	{
-		return $this->db->get('cucian')->result();
+		$belum='belum';
+		return $this->db
+		->from('cucian')
+		->where('status',$belum)
+		->get()
+		->result();
 	}
 	function perkg()
 	{
