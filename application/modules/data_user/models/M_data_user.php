@@ -121,6 +121,6 @@ class M_data_user extends CI_Model {
 	function cari()
 	{
 		$cari 		= $this->input->post('cari');
-		return $this->db->like('nama_sekolah',$cari)->get('sekolah')->result();
+		return $this->db->like('nama',$cari)->get('tb_login')->result();
 	}
 }

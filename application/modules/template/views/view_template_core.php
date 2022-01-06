@@ -586,6 +586,25 @@
                                         <!--Submenu-->
                                     </li>
                                     <?php } ?>
+                                    <?php if($this->uri->segment('1') == 'data_user'){ ?>
+                                    <li class="active-sub">
+                                        <a href="<?php echo base_url('data_user'); ?>">
+                                            <i class="fa fa-list"></i>
+                                            <span class="menu-title">Data user</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                        <!--Submenu-->
+                                    </li>
+                                    <?php } else{ ?>
+                                        <li>
+                                        <a href="<?php echo base_url('data_user'); ?>">
+                                            <i class="fa fa-list"></i>
+                                            <span class="menu-title">Data user</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                        <!--Submenu-->
+                                    </li>
+                                    <?php } ?>
 
 
                               

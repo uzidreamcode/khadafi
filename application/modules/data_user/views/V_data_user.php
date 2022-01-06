@@ -1,7 +1,7 @@
 <div id="page-content">	
 
   <div class="form-group" style="padding-bottom: 2%">
-    <form method="post" action="<?php echo site_url('data_sekolah/cari') ?>" >
+    <form method="post" action="<?php echo site_url('data_user/cari') ?>" >
       <div class="col-md-2" style="padding: 0px">
         <div id="demo-dp-txtinput">
           <?php if($this->uri->segment(2) != 'cari'){?>
@@ -55,10 +55,24 @@
 
           </p>
           <p class="text-muted mar-no" style="height:20px;">
-            <?= substr($res->username,0,35) ?>
-          </p>
-        </div>
-        <div class="pad-all text-center">
+            <?php
+            if ($res->level==1) 
+            {
+              echo "admin";
+            }
+            elseif ($res->level==2) 
+            {
+             echo "kasir";
+           }
+           elseif ($res->level==3) 
+           {
+             echo "pelanggan";
+           }
+           ?>
+
+         </p>
+       </div>
+       <div class="pad-all text-center">
          <span>
           <a data-toggle="modal" data-target="#demo-default-modal1<?php echo $res->id_admin?>" class=" btn btn-success btn-sm">
             <span class="fa fa-edit"></span>
@@ -95,46 +109,46 @@
           <div class="modal-body">
 
             <div class="panel-body">
-          <div class="col-md-6">
-            <label for="" class="control-label">Nama</label>
-              <input type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
-              <input type="hidden" value="<?= $res->id_admin ?>" name="id_user">
-            </div>
-            <div class="col-md-6">
-              <label for="" class="control-label">No Hp</label>
-              <input type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
-            </div>
-            <div style="margin-top: 30px" class="col-md-6">
-              <label for="" class="control-label"> Username</label>
-              <input type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
-          </div>
-          <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label">Password</label>
-            <input type="password" value="<?= $res->password ?>"  name="password"  placeholder="Password" class="form-control">
-          </div>
-          <div style="margin-top: 30px" class="col-md-6" >
-            <label for="" class="control-label">Foto Profil</label>
-            <input type="file" name="gambar" placeholder="Logo " class="form-control" id="userfile" onchange="tampilkanPreview(this,'preview')">
-          </div>
-          <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label">Level</label>
-            <select name="level" class="form-control" id="exampleFormControlSelect1">
-              <option value="2">Kasir</option>
-              <option value="3">Pelanggan</option>
-              
-            </select>
-          </div>
-          <div class="col-md-6 " style="margin-top: 2%">
-            <label for="" class="control-label">Preview Foto Profile</label>
-            <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
-          </div>
+              <div class="col-md-6">
+                <label for="" class="control-label">Nama</label>
+                <input type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
+                <input type="hidden" value="<?= $res->id_admin ?>" name="id_user">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="control-label">No Hp</label>
+                <input type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label"> Username</label>
+                <input type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">Password</label>
+                <input type="password"   name="password"  placeholder="Password" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6" >
+                <label for="" class="control-label">Foto Profil</label>
+                <input type="file" name="gambar" placeholder="Logo " class="form-control" id="userfile" onchange="tampilkanPreview(this,'preview')">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">Level</label>
+                <select name="level" class="form-control" id="exampleFormControlSelect1">
+                  <option value="2">Kasir</option>
+                  <option value="3">Pelanggan</option>
 
-        
+                </select>
+              </div>
+              <div class="col-md-6 " style="margin-top: 2%">
+                <label for="" class="control-label">Preview Foto Profile</label>
+                <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
+              </div>
 
 
 
 
-             
+
+
+
             </div>
 
 
@@ -167,45 +181,60 @@
           <div class="modal-body">
 
             <div class="panel-body">
-          <div class="col-md-6">
-            <label for="" class="control-label">Nama</label>
-              <input disabled type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
-              <input  type="hidden" value="<?= $res->id_admin ?>" name="id_user">
+              <div class="col-md-6">
+                <label for="" class="control-label">Nama</label>
+                <input disabled type="text" name="nama" value="<?= $res->nama ?>" placeholder="Nama" class="form-control">
+                <input  type="hidden" value="<?= $res->id_admin ?>" name="id_user">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="control-label">No Hp</label>
+                <input disabled type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label"> Username</label>
+                <input disabled type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">Password</label>
+                <input disabled type="password" value="<?= $res->password ?>"  name="password"  placeholder="Password" class="form-control">
+              </div>
+
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">Level</label>
+                <select disabled name="level" class="form-control" id="exampleFormControlSelect1">
+                  <option value="2">
+                    <?php
+                    if ($res->level==1) 
+                    {
+                      echo "admin";
+                    }
+                    elseif ($res->level==2) 
+                    {
+                     echo "kasir";
+                   }
+                   elseif ($res->level==3) 
+                   {
+                     echo "pelanggan";
+                   }
+                   ?>
+                 </option>
+                 <option value="3">Pelanggan</option>
+
+               </select>
+             </div>
+             <div class="col-md-6 " style="margin-top: 2%">
+              <label for="" class="control-label">Preview Foto Profile</label>
+              <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
             </div>
-            <div class="col-md-6">
-              <label for="" class="control-label">No Hp</label>
-              <input disabled type="text" name="hp" value="<?= $res->hp ?>" placeholder="No Hp" class="form-control">
-            </div>
-            <div style="margin-top: 30px" class="col-md-6">
-              <label for="" class="control-label"> Username</label>
-              <input disabled type="text" name="username"  value="<?= $res->username ?>"  placeholder="Username" class="form-control">
-          </div>
-          <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label">Password</label>
-            <input disabled type="password" value="<?= $res->password ?>"  name="password"  placeholder="Password" class="form-control">
-          </div>
-          
-          <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label">Level</label>
-            <select disabled name="level" class="form-control" id="exampleFormControlSelect1">
-              <option value="2">Kasir</option>
-              <option value="3">Pelanggan</option>
-              
-            </select>
-          </div>
-          <div class="col-md-6 " style="margin-top: 2%">
-            <label for="" class="control-label">Preview Foto Profile</label>
-            <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
-          </div>
-
-             
-            </div>
 
 
-         </div>
+          </div>
 
-         <!--Modal footer-->
-         <div class="modal-footer">
+
+        </div>
+
+        <!--Modal footer-->
+        <div class="modal-footer">
           <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
 
         </div>
