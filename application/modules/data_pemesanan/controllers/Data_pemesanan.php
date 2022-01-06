@@ -19,6 +19,7 @@ class Data_pemesanan extends MX_Controller {
 			'namamodule' 	=> "data_pemesanan",
 			'namafileview' 	=> "V_data_pemesanan",
 			'tampil'		=> $this->m_data_pemesanan->tampil(),
+			'perkg'		=> $this->m_data_pemesanan->perkg(),
 		);
 		echo Modules::run('template/tampilCore', $data);
 	}
@@ -27,6 +28,9 @@ class Data_pemesanan extends MX_Controller {
 	{
 		$this->m_data_pemesanan->tambah();
 		redirect('data_pemesanan');
+
+		
+
 	}
 
 	function edit()

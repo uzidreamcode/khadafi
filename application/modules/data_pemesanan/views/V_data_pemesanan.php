@@ -41,7 +41,7 @@
 
   <?php foreach($tampil as $res) {
     $id = $res->id_cucian;
-  
+
     ?>
     <div class="col-lg-4" style="margin-top: 2%">
 
@@ -58,16 +58,20 @@
           
           <div class="list-group bg-trans mar-no">
             <a class="list-group-item list-item-sm" href="#">
-              <span class="label label-primary pull-right">15 Kg</span>
+              <span class="label label-primary pull-right"><?php echo $res->berat?> Kg</span>
               Berat Cucian
             </a>
+            <?php 
+            $date = date('d-m-Y', strtotime($res->tanggal));
+            ?>
+
             <a class="list-group-item list-item-sm" href="#">
-              <span class="label label-success pull-right">100</span>
+              <span class="label label-success pull-right"><?php echo $date?></span>
               Tanggal
             </a>
             <a class="list-group-item list-item-sm" href="#">
-              <span class="label label-danger pull-right">Rp 15.000</span>
-              Harga
+              <span class="label label-danger pull-right">Rp <?php echo $res->harga?></span>
+              Harga 
             </a>
           </div>
           <div class="pad-all text-center">
@@ -108,7 +112,7 @@
           <div class="modal-body">
 
             <div class="panel-body">
-              
+
               selesai
             </div>
 
@@ -157,7 +161,7 @@
               </div>
 
               <div style="margin-top: 30px" class="col-md-6">
-                <label for="" class="control-label">harga</label>
+                <label for="" class="control-label">harga (Rp)</label>
                 <input disabled type="text" value="<?= $res->harga ?>"  name="password"  placeholder="Password" class="form-control">
               </div>
 
@@ -238,7 +242,7 @@
         <h4 class="modal-title">Tambah User</h4>
       </div>
 
-      <?= form_open_multipart('data_user/tambah'); ?>
+      <?= form_open_multipart('data_pemesanan/tambah'); ?>
       <!--Modal body--> 
       <div class="modal-body">
 
@@ -246,53 +250,57 @@
 
           <div class="col-md-6">
             <label for="" class="control-label">Nama</label>
-            <input type="text" name="nama" placeholder="Nama" class="form-control">
+            <input  type="text" name="nama"  placeholder="Nama" class="form-control">
           </div>
           <div class="col-md-6">
             <label for="" class="control-label">No Hp</label>
-            <input type="text" name="hp" placeholder="No Hp" class="form-control">
+            <input  type="text" name="hp" placeholder="No Hp" class="form-control">
           </div>
           <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label"> Username</label>
-            <input type="text" name="username" placeholder="Username" class="form-control">
+            <label for="" class="control-label"> Berat (kg)</label>
+            <input  type="text" name="berat"   placeholder="Username" class="form-control">
           </div>
+
           <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label">Password</label>
-            <input type="text" name="password" placeholder="Password" class="form-control">
+            <label for="" class="control-label">harga per kg (Rp)</label>
+              <?php foreach($perkg as $ress) 
+              {
+                ?>
+                <input readonly=""  type="text" name="harga_kg" value="<?php echo $ress->total?>"   placeholder="Username" class="form-control">
+          
+              <?php }?>    
+            </div>
+            <div style="margin-top: 30px" class="col-md-6">
+              <input  type="hidden" value="<?php echo date('y-m-d')?> "  name="tanggal"  placeholder="Password" class="form-control">
+            </div>
+            <div style="margin-top: 30px" class="col-md-6">
+              <input  type="hidden" value="belum" name="status"  placeholder="Password" class="form-control">
+            </div>
+
+
+             <!-- <div class="col-md-6 " style="margin-top: 2%">
+              <label for="" class="control-label">Preview Foto Profile</label>
+              <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
+            </div> -->
+
+
+
           </div>
-          <div style="margin-top: 30px" class="col-md-6" >
-            <label for="" class="control-label">Foto Profil</label>
-            <input type="file" name="gambar" placeholder="Logo" class="form-control" id="userfile" onchange="tampilkanPreview(this,'preview')">
-          </div>
-          <div style="margin-top: 30px" class="col-md-6">
-            <label for="" class="control-label">Level</label>
-            <select name="level" class="form-control" id="exampleFormControlSelect1">
-              <option value="2">Kasir</option>
-              <option value="3">Pelanggan</option>
-              
-            </select>
-          </div>
-          <div class="col-md-6 " style="margin-top: 2%">
-            <label for="" class="control-label">Preview Foto Profile</label>
-            <img id="preview" width="150px" />
-          </div>
+
 
         </div>
 
+        <!--Modal footer-->
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+          <button class="btn btn-primary" type="submit">Simpan</button>
+        </div>
+        <?= form_close(); ?>
 
       </div>
-
-      <!--Modal footer-->
-      <div class="modal-footer">
-        <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-        <button class="btn btn-primary" type="submit">Simpan</button>
-      </div>
-      <?= form_close(); ?>
-
     </div>
   </div>
-</div>
-<!-- end tambah -->
+  <!-- end tambah -->
 
 </div>
 <!--jQuery [ REQUIRED ]-->
