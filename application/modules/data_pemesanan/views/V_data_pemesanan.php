@@ -142,8 +142,42 @@
           <div class="modal-body">
 
             <div class="panel-body">
-              detail
-            </div>
+              <div class="col-md-6">
+                <label for="" class="control-label">Nama</label>
+                <input disabled type="text" name="nama" value="<?= $res->nama_pelanggan ?>" placeholder="Nama" class="form-control">
+                <input  type="hidden" value="<?= $res->id_cucian ?>" name="id_user">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="control-label">No Hp</label>
+                <input disabled type="text" name="hp" value="<?= $res->no_hp ?>" placeholder="No Hp" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label"> Berat (kg)</label>
+                <input disabled type="text" name="username"  value="<?= $res->berat ?>"  placeholder="Username" class="form-control">
+              </div>
+
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">harga</label>
+                <input disabled type="text" value="<?= $res->harga ?>"  name="password"  placeholder="Password" class="form-control">
+              </div>
+
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">Tanggal</label>
+                <input disabled type="text" value="<?= $res->tanggal ?>"  name="password"  placeholder="Password" class="form-control">
+              </div>
+              <div style="margin-top: 30px" class="col-md-6">
+                <label for="" class="control-label">status</label>
+                <input disabled type="text" value="<?= $res->status ?>"  name="password"  placeholder="Password" class="form-control">
+              </div>
+
+              
+             <!-- <div class="col-md-6 " style="margin-top: 2%">
+              <label for="" class="control-label">Preview Foto Profile</label>
+              <img  src="<?= base_url(); ?>assets/img/<?= $res->foto ?>" width="150px" />
+            </div> -->
+
+
+          </div>
 
 
         </div>
