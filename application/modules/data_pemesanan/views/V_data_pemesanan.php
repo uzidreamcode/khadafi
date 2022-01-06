@@ -105,23 +105,30 @@
             <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
             <h4 class="modal-title">Update</h4>
           </div>
-          <?= form_open_multipart('data_user/edit'); ?>
-          <input type="hidden" name="id_cucian" value="<?php echo $res->id_cucian?>">
 
           <!--Modal body--> 
           <div class="modal-body">
 
             <div class="panel-body">
 
-              selesai
+              <p class="text-semibold text-main"></p>
+              <p>Apakah Cucian Milik <b><?php echo $res->nama_pelanggan ?></b> sudah selesai ? </p>
+              <br>
+
+
+
+
             </div>
 
 
           </div>
 
           <!--Modal footer-->
+           <?= form_open_multipart('data_pemesanan/status'); ?>
           <div class="modal-footer">
             <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+            <input type="hidden" name="id_status" value="<?php echo $res->id_cucian ?>">
+            <input type="hidden" class="btn btn-success" value="selesai" name="status">
             <button class="btn btn-primary" type="submit">Simpan</button>
           </div>
           <?= form_close(); ?>
@@ -211,7 +218,7 @@
         <!--Modal body-->
         <div class="modal-body">
           <p class="text-semibold text-main"></p>
-          <p>Anda Yakin Ingin Menghapus <b><?php echo $res->nama_pelanggan ?></b> ? </p>
+          <p>Anda Yakin Ingin Menghapus Cucian milik <b><?php echo $res->nama_pelanggan ?></b> ? </p>
           <br>
 
 
@@ -221,7 +228,7 @@
         <!--Modal footer-->
         <div class="modal-footer">
           <button data-dismiss="modal" class="btn btn-default" type="button">Batal</button>
-          <a class="btn btn-danger" href="<?php echo base_url('data_user/hapus/'. $res->id_cucian) ?>">Hapus User</a>
+          <a class="btn btn-danger" href="<?php echo base_url('data_pemesanan/hapus/'. $res->id_cucian) ?>">Hapus Cucian</a>
         </div>
       </div>
     </div>
@@ -263,19 +270,19 @@
 
           <div style="margin-top: 30px" class="col-md-6">
             <label for="" class="control-label">harga per kg (Rp)</label>
-              <?php foreach($perkg as $ress) 
-              {
-                ?>
-                <input readonly=""  type="text" name="harga_kg" value="<?php echo $ress->total?>"   placeholder="Username" class="form-control">
-          
-              <?php }?>    
-            </div>
-            <div style="margin-top: 30px" class="col-md-6">
-              <input  type="hidden" value="<?php echo date('y-m-d')?> "  name="tanggal"  placeholder="Password" class="form-control">
-            </div>
-            <div style="margin-top: 30px" class="col-md-6">
-              <input  type="hidden" value="belum" name="status"  placeholder="Password" class="form-control">
-            </div>
+            <?php foreach($perkg as $ress) 
+            {
+              ?>
+              <input readonly=""  type="text" name="harga_kg" value="<?php echo $ress->total?>"   placeholder="Username" class="form-control">
+
+            <?php }?>    
+          </div>
+          <div style="margin-top: 30px" class="col-md-6">
+            <input  type="hidden" value="<?php echo date('y-m-d')?> "  name="tanggal"  placeholder="Password" class="form-control">
+          </div>
+          <div style="margin-top: 30px" class="col-md-6">
+            <input  type="hidden" value="belum" name="status"  placeholder="Password" class="form-control">
+          </div>
 
 
              <!-- <div class="col-md-6 " style="margin-top: 2%">

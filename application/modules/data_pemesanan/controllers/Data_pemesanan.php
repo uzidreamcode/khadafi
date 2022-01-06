@@ -29,7 +29,7 @@ class Data_pemesanan extends MX_Controller {
 		$this->m_data_pemesanan->tambah();
 		redirect('data_pemesanan');
 
-		
+
 
 	}
 
@@ -37,6 +37,12 @@ class Data_pemesanan extends MX_Controller {
 	{
 		$this->m_data_pemesanan->edit();
 		redirect('data_pemesanan');
+	}
+	function status()
+	{
+		$this->m_data_pemesanan->status();
+		redirect('data_pemesanan');
+		
 	}
 
 	function hapus($id)

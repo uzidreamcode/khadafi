@@ -43,6 +43,24 @@ class M_data_pemesanan extends CI_Model {
 		
 
 	}
+	function status()
+	{
+		$id 		= $this->input->post('id_status');
+		$status	= $this->input->post('status');
+		
+		
+
+		$data = array(
+			'status'						=>$status,
+
+
+
+
+		);
+		$this->db->where('id_cucian',$id)->update('cucian', $data);
+		
+
+	}
 
 	function edit()
 	{
@@ -97,7 +115,7 @@ class M_data_pemesanan extends CI_Model {
 
 	function hapus($id)
 	{
-		$this->db->where('id_admin', $id)->delete('tb_login');
+		$this->db->where('id_cucian', $id)->delete('cucian');
 	}
 
 	function cari()
