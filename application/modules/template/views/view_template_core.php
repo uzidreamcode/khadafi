@@ -526,6 +526,25 @@
 
 
                         <ul id="mainnav-menu" class="list-group">
+                            <?php if($this->uri->segment('1') == 'Data_dashboard'){ ?>
+                                <li class="active-sub">
+                                    <a href="<?php echo base_url('Data_dashboard'); ?>">
+                                        <i class="demo-pli-home"></i>
+                                        <span class="menu-title">Dashboard</span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                    <!--Submenu-->
+                                </li>
+                            <?php } else{ ?>
+                                <li>
+                                    <a href="<?php echo base_url('Data_dashboard'); ?>">
+                                        <i class="demo-pli-home"></i>
+                                        <span class="menu-title">Data user</span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                    <!--Submenu-->
+                                </li>
+                            <?php } ?>
 
 
 
