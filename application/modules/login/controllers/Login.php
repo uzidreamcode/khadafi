@@ -47,7 +47,7 @@ class Login extends MX_Controller {
 		// check
 		if ( ! empty($getData) )
 		{
-			$this->M_session->store_session( $getData->id_siswa );
+			$this->M_session->store_session( $getData->id_admin );
 
 			// flashdata
 			$this->session->set_flashdata('msg', 'greeting');
@@ -65,7 +65,7 @@ class Login extends MX_Controller {
 			else if ($getData->level==2) 
 			{
 
-			    redirect('user_dashboard');
+			    redirect('Pelanggan');
 			    // echo $getData->id_siswa;
 			}
 			
