@@ -50,8 +50,8 @@
                         <img class="login-logo" src="<?php echo base_url(); ?>assets/login/pages/img/login/magang1.png" style="width:200px"/> 
                     </div>
                     <div class="login-content">
-                        <h1>CORE Hummasoft </h1>
-                        <p> Selamat datang di Hummasoft , silahkan login terlebih dahulu sebelum melanjutkan ke halaman dasboard . </p>
+                        <h1>Aplikasi Pengelolaan Laundry </h1>
+                        <p> Selamat datang di Aplikasi Pengelolaan Laundry , silahkan login terlebih dahulu sebelum melanjutkan ke halaman dasboard . </p>
                         <?php if($cekAdmin){ 
                         
                      }
@@ -253,11 +253,7 @@
 
                     // init background slide images
                     $('.login-bg').backstretch([
-                        "<?php echo base_url(); ?>assets/login/pages/img/login/1.jpg",
-                        "<?php echo base_url(); ?>assets/login/pages/img/login/2.jpg",
-                        "<?php echo base_url(); ?>assets/login/pages/img/login/3.jpg",
-                        "<?php echo base_url(); ?>assets/login/pages/img/login/4.jpg",
-                        "<?php echo base_url(); ?>assets/login/pages/img/login/5.jpg"
+                        "<?php echo base_url(); ?>assets/login/pages/img/login/lau.jpg",
                         ], {
                           fade: 1000,
                           duration: 5000
