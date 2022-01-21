@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2022 at 02:52 PM
+-- Generation Time: Jan 21, 2022 at 05:50 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.18
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cucian` (
   `id_cucian` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL,
   `nama_pelanggan` varchar(100) NOT NULL,
   `berat` int(11) NOT NULL,
   `tanggal` date NOT NULL,
@@ -41,14 +42,11 @@ CREATE TABLE `cucian` (
 -- Dumping data for table `cucian`
 --
 
-INSERT INTO `cucian` (`id_cucian`, `nama_pelanggan`, `berat`, `tanggal`, `harga`, `no_hp`, `status`) VALUES
-(1, 'uzi', 3, '2006-01-22', '10000', 888, 'selesai'),
-(5, '123', 0, '2022-01-06', '0', 122, 'belum'),
-(6, 'tes', 33, '2022-01-06', '3300000', 123, 'belum'),
-(7, 'tes', 3, '2022-01-06', '9000', 123123, 'selesai'),
-(8, '13123', 12, '2022-01-06', '36000', 812123, 'selesai'),
-(9, '23423', 2113, '2022-01-06', '6339000', 4, 'belum'),
-(10, 'uzi', 1, '2022-01-06', '3000', 22, 'belum');
+INSERT INTO `cucian` (`id_cucian`, `id_admin`, `nama_pelanggan`, `berat`, `tanggal`, `harga`, `no_hp`, `status`) VALUES
+(13, 5, 'kasir', 3, '2022-01-21', '9000', 0, 'belum'),
+(14, 5, 'kasir', 12312, '2022-01-21', '36936000', 0, 'selesai'),
+(15, 5, 'kasir', 123, '2022-01-21', '369000', 1, 'selesai'),
+(17, 0, 'tes belum', 4, '2022-01-21', '12000', 12312, 'selesai');
 
 -- --------------------------------------------------------
 
@@ -119,7 +117,9 @@ CREATE TABLE `tb_login` (
 INSERT INTO `tb_login` (`id_admin`, `nama`, `username`, `password`, `hp`, `foto`, `level`) VALUES
 (1, 'Somad', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 0, 'file_1641432039.png', 1),
 (2, 'sdsdad', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 812123, 'file_1641431586.PNG', 2),
-(4, 'uzi', 'uzi', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 12, 'file_1641397993.jpg', 2);
+(4, 'uzi', 'uzi', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 12, 'file_1641397993.jpg', 2),
+(5, 'kasir', 'kasir', '8691e4fc53b99da544ce86e22acba62d13352eff', 1, 'file_1642775643.png', 2),
+(6, 'd', 'd', '3c363836cf4e16666669a25da280a1865c2d2874', 0, 'file_1642775690.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,8 @@ CREATE TABLE `user_level` (
 -- Indexes for table `cucian`
 --
 ALTER TABLE `cucian`
-  ADD PRIMARY KEY (`id_cucian`);
+  ADD PRIMARY KEY (`id_cucian`),
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `harga`
@@ -175,7 +176,7 @@ ALTER TABLE `user_level`
 -- AUTO_INCREMENT for table `cucian`
 --
 ALTER TABLE `cucian`
-  MODIFY `id_cucian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cucian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `harga`
@@ -193,7 +194,7 @@ ALTER TABLE `sekolah`
 -- AUTO_INCREMENT for table `tb_login`
 --
 ALTER TABLE `tb_login`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_level`
